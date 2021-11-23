@@ -14,11 +14,13 @@ function App() {
     setQuote(response.data);
   };
   return (
-    <div>
-      {console.log("qoute", quote)}
-      <h1>Random Quote Generator</h1>
-      <Quote quote={quote} />
-    </div>
+    <main className="container vh-100 d-flex justify-content-center align-items-center">
+      <div className="row">
+        <div className="col-md-8 mx-auto">
+          <Quote quote={quote} />
+        </div>
+      </div>
+    </main>
   );
 }
 
