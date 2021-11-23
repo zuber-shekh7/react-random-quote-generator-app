@@ -10,6 +10,7 @@ function App() {
   }, []);
 
   const getRandomQuote = async () => {
+    setQuote(null);
     const response = await quoteApis.get("/random");
     setQuote(response.data);
   };
@@ -17,7 +18,7 @@ function App() {
     <main className="container vh-100 d-flex justify-content-center align-items-center">
       <div className="row">
         <div className="col-md-8 mx-auto">
-          <Quote quote={quote} />
+          <Quote quote={quote} getRandomQuote={getRandomQuote} />
         </div>
       </div>
     </main>
