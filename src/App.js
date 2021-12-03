@@ -34,7 +34,11 @@ function App() {
 
   return (
     <ThemeContext.Provider value={{ theme: themes[getCurrentTheme()] }}>
-      <Navbar theme={theme} switchTheme={switchTheme} />
+      <Navbar
+        theme={theme}
+        switchTheme={switchTheme}
+        getRandomQuote={getRandomQuote}
+      />
       <main
         className={`container vh-100 d-flex justify-content-center align-items-center ${theme}`}
       >

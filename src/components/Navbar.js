@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import ThemeContext from "../contexts/ThemeContext";
 
-const Navbar = ({ theme, switchTheme }) => {
+const Navbar = ({ theme, switchTheme, getRandomQuote }) => {
   const { theme: themeColor } = useContext(ThemeContext);
 
   return (
@@ -24,12 +24,14 @@ const Navbar = ({ theme, switchTheme }) => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page">
+              <a className="nav-link" aria-current="page">
                 Home
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link">New Quote</a>
+              <a onClick={getRandomQuote} className="nav-link">
+                New Quote
+              </a>
             </li>
             <li className="nav-item">
               <a
@@ -37,7 +39,7 @@ const Navbar = ({ theme, switchTheme }) => {
                 onClick={switchTheme}
                 className="nav-link"
               >
-                {theme === "dark" ? "Dark Mode" : "Light Mode"}
+                {theme === "dark" ? "Light Mode" : "Dark Mode"}
               </a>
             </li>
           </ul>
