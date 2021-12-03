@@ -1,8 +1,10 @@
 import React from "react";
 
-const Navbar = () => {
+const Navbar = ({ theme, themeColor, switchTheme }) => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-transparent py-4 sticky-top">
+    <nav
+      className={`navbar navbar-expand-lg ${themeColor.navbarColor} bg-transparent py-4`}
+    >
       <div className="container-fluid">
         <a className="navbar-brand">Programming Quotes</a>
         <button
@@ -27,7 +29,13 @@ const Navbar = () => {
               <a className="nav-link">New Quote</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link">Dark Mode</a>
+              <a
+                style={{ cursor: "point" }}
+                onClick={switchTheme}
+                className="nav-link"
+              >
+                {theme === "dark" ? "Dark Mode" : "Light Mode"}
+              </a>
             </li>
           </ul>
         </div>
