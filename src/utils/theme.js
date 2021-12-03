@@ -3,11 +3,13 @@ const themes = {
     backgroundColor: "bg-dark",
     textColor: "text-light",
     navbarColor: "navbar-dark",
+    btn: "btn btn-primary",
   },
   light: {
     backgroundColor: "bg-light",
     textColor: "text-dark",
     navbarColor: "navbar-light",
+    btn: "btn btn-outline-primary",
   },
 };
 

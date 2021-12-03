@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
+import ThemeContext from "../contexts/ThemeContext";
 
 export const Quote = ({ quote, getRandomQuote }) => {
+  const { theme } = useContext(ThemeContext);
   if (!quote) {
     return (
-      <div className="spinner-border text-dark" role="status">
+      <div className={`spinner-border ${theme.textColor}`} role="status">
         <span className="visually-hidden">Loading...</span>
       </div>
     );
@@ -15,14 +17,14 @@ export const Quote = ({ quote, getRandomQuote }) => {
       <p className="lead">- {quote.author}</p>
       <div>
         <a
-          className="btn btn-outline-primary mx-2"
+          className={`${theme.btn} mx-2`}
           href={`https://twitter.com/intent/tweet?text=${quote.en}`}
           target="_blank"
           rel="noreferrer"
         >
           Twitter
         </a>
-        <button className="btn btn-outline-primary" onClick={getRandomQuote}>
+        <button className={theme.btn} onClick={getRandomQuote}>
           New Quote
         </button>
       </div>

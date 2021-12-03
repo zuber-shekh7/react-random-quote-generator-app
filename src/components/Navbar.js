@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import ThemeContext from "../contexts/ThemeContext";
 
-const Navbar = ({ theme, themeColor, switchTheme }) => {
+const Navbar = ({ theme, switchTheme }) => {
+  const { theme: themeColor } = useContext(ThemeContext);
+
   return (
     <nav
       className={`navbar navbar-expand-lg ${themeColor.navbarColor} bg-transparent py-4`}

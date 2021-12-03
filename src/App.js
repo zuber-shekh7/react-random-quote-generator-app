@@ -3,6 +3,7 @@ import { Quote } from "./components/Quote";
 import quoteApis from "./apis/randomQuotes";
 import Navbar from "./components/Navbar";
 import { getCurrentTheme, swithCurrentTheme, themes } from "./utils/theme";
+import ThemeContext from "./contexts/ThemeContext";
 
 function App() {
   const [quote, setQuote] = useState(null);
@@ -32,12 +33,8 @@ function App() {
   };
 
   return (
-    <>
-      <Navbar
-        theme={theme}
-        themeColor={themes[getCurrentTheme()]}
-        switchTheme={switchTheme}
-      />
+    <ThemeContext.Provider value={{ theme: themes[getCurrentTheme()] }}>
+      <Navbar theme={theme} switchTheme={switchTheme} />
       <main
         className={`container vh-100 d-flex justify-content-center align-items-center ${theme}`}
       >
@@ -47,7 +44,7 @@ function App() {
           </div>
         </div>
       </main>
-    </>
+    </ThemeContext.Provider>
   );
 }
 
