@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Quote } from "./components/Quote";
 import quoteApis from "./apis/randomQuotes";
+import Navbar from "./components/Navbar";
 
 function App() {
   const [quote, setQuote] = useState(null);
@@ -15,13 +16,16 @@ function App() {
     setQuote(response.data);
   };
   return (
-    <main className="container vh-100 d-flex justify-content-center align-items-center">
-      <div className="row">
-        <div className="col-md-8 mx-auto">
-          <Quote quote={quote} getRandomQuote={getRandomQuote} />
+    <>
+      <Navbar />
+      <main className="container vh-100 d-flex justify-content-center align-items-center">
+        <div className="row">
+          <div className="col-md-8 mx-auto">
+            <Quote quote={quote} getRandomQuote={getRandomQuote} />
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </>
   );
 }
 
